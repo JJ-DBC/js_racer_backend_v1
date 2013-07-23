@@ -1,12 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>JavaScript Racer</title>
-    <link href="application.css" rel="stylesheet" type="text/css">
-  </head>
-
-  <body>
-    <% @game.players.each_with_index do |player, index| %>
+ <% @game.players.each_with_index do |player, index| %>
     <p id="<%= index+1 %>"><%= player.name %></p>
     <% end %> 
 
@@ -41,7 +33,5 @@
 
   <a href="file://localhost/Users/apprentice/Dropbox/DBC-Chicago/Grasshoppers/brettsanders/phase2/javascript_racer_1/racer.html">Play Again</a>
 
-  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-  <script type ="text/javascript" src="application.js"></script>
-  </body>
-</html>
+  
+  

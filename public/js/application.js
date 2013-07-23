@@ -7,7 +7,7 @@
 // p = 80
 // q = 81
 
-function player(number, key){
+function player(number){
   // console.log('you pressed ', );
   var activeEl = $("tr#player"+number+"_strip td.active");
   activeEl.removeClass('active');
@@ -19,18 +19,33 @@ function player(number, key){
    $('body').append("<p>Player "+number+" Wins</p>")
    $(document).unbind("keyup");
    $("p#"+number).addClass("winner");
-   var serializedData = $("p#"+number).serialize();
+   // var serializedData = $("p#"+number).serialize();
    // ajax post to same url
    var pathname = window.location.pathname;
    console.log(pathname);
+   // gets winner name as string
+   var winnerName = $("p#"+number).text();
+   // console.log($("p#"+number).text());
 
-    request = $.ajax({
-        url: pathname,
-        type: "post",
-        data: serializedData
-    });
+   $.post(pathname, { winner: winnerName}, function(response){
+    console.log(response)
+    $('html').html(response);
+   });
+   // window.location.href="/gameover"
 
-    console.log(request);
+  // $.ajax({
+  //   type: "POST",
+  //   url: pathname,
+  //   data: '{"winner":"' + winnerName + '"}',
+  //   contentType: "application/json; charset=utf-8",
+  //   dataType: "json",
+  //   success: function(data) {
+  //       alert(data.d);
+  //   },
+  //   error: function(data){
+  //       alert("fail");
+  //   }
+  // });
 
   };
 };

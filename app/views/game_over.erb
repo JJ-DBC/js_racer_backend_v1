@@ -1,0 +1,10 @@
+Game Over Sucka
+Players
+<ol>
+<% @game.players.each do |player| %>
+
+<li><%= player.name %></li>
+    <%end%>
+</ol>
+<p>Winner <%= @game.winner %></p>
+<p>Winning URL <a href="<%=@game.formatted_url%>"><%=@game.formatted_url%></a></p>
